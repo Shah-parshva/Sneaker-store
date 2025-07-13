@@ -2,197 +2,245 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Sneaker Store | Home</title>
-    <link rel="stylesheet" href="style.css" />
-    <style>
-        /* Core Reset */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sneaker Store | Home</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    /* Core Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-        body {
-            font-family: Arial, sans-serif;
-        }
+    body {
+      font-family: Arial, sans-serif;
+    }
 
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1rem 2rem;
-            background-color: #111;
-            color: #fff;
-        }
+    /* Navbar */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      background-color: #111;
+      color: #fff;
+      position: relative;
+    }
 
-        .logo {
-            font-size: 1.5rem;
-            font-weight: bold;
-        }
+    .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
 
-        nav ul {
-            list-style: none;
-            display: flex;
-            gap: 1rem;
-        }
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 1rem;
+    }
 
-        nav ul li a {
-            text-decoration: none;
-            color: #fff;
-        }
+    nav ul li a {
+      text-decoration: none;
+      color: #fff;
+      transition: color 0.3s;
+    }
 
-        /* Hamburger menu styles */
-        .hamburger {
-            display: none;
-            flex-direction: column;
-            cursor: pointer;
-            gap: 5px;
-        }
+    nav ul li a:hover {
+      color: #ffd700;
+    }
 
-        .hamburger div {
-            width: 25px;
-            height: 3px;
-            background-color: white;
-        }
+    /* Hamburger Menu */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+    }
 
-        /* Responsive */
-        @media (max-width: 768px) {
-            nav ul {
-                display: none;
-                flex-direction: column;
-                background-color: #111;
-                position: absolute;
-                top: 60px;
-                right: 20px;
-                width: 150px;
-                border: 1px solid #333;
-                padding: 1rem;
-            }
+    .hamburger div {
+      width: 25px;
+      height: 3px;
+      background-color: white;
+    }
 
-            nav ul.show {
-                display: flex;
-            }
+    /* Hero Section */
+    .hero {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      padding: 2rem;
+      gap: 2rem;
+    }
 
-            .hamburger {
-                display: flex;
-            }
-        }
+    .hero-text {
+      flex: 1;
+      min-width: 250px;
+    }
 
-        .hero {
-            display: flex;
-            flex-wrap: wrap;
-            align-items: center;
-            padding: 2rem;
-        }
+    .hero-image {
+      flex: 1;
+      min-width: 250px;
+      text-align: center;
+    }
 
-        .hero-text {
-            flex: 1;
-            min-width: 250px;
-        }
+    .hero-image img {
+      max-width: 100%;
+      height: auto;
+    }
 
-        .hero-image img {
-            max-width: 100%;
-            height: auto;
-        }
+    .btn {
+      display: inline-block;
+      padding: 0.75rem 1.5rem;
+      margin-top: 1rem;
+      background-color: #000;
+      color: #fff;
+      text-decoration: none;
+      transition: background-color 0.3s;
+    }
 
-        .btn {
-            display: inline-block;
-            padding: 0.75rem 1.5rem;
-            margin-top: 1rem;
-            background-color: #000;
-            color: #fff;
-            text-decoration: none;
-        }
+    .btn:hover {
+      background-color: #333;
+    }
 
-        .featured {
-            padding: 2rem;
-            text-align: center;
-        }
+    /* Featured Section */
+    .featured {
+      padding: 2rem;
+      text-align: center;
+    }
 
-        .product-grid {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1rem;
-            justify-content: center;
-            margin-top: 1rem;
-        }
+    .product-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      justify-content: center;
+      margin-top: 1rem;
+    }
 
-        .product-card {
-            border: 1px solid #ccc;
-            padding: 1rem;
-            max-width: 200px;
-        }
+    .product-card {
+      border: 1px solid #ccc;
+      padding: 1rem;
+      max-width: 200px;
+      text-align: center;
+    }
 
-        footer {
-            text-align: center;
-            padding: 1rem;
-            background-color: #f4f4f4;
-        }
-    </style>
+    .product-card img {
+      max-width: 100%;
+      height: auto;
+      margin-bottom: 10px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1rem;
+      background-color: #f4f4f4;
+    }
+
+    /* Responsive Styling */
+    @media (max-width: 768px) {
+      .hamburger {
+        display: flex;
+      }
+
+      nav ul {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        right: 20px;
+        background-color: #111;
+        width: 160px;
+        padding: 1rem;
+        border-radius: 6px;
+        z-index: 1000;
+      }
+
+      nav ul.show {
+        display: flex;
+      }
+
+      nav ul li {
+        padding: 0.5rem 0;
+        border-top: 1px solid #333;
+      }
+
+      nav ul li:first-child {
+        border-top: none;
+      }
+
+      .hero {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .hero-text, .hero-image {
+        width: 100%;
+      }
+    }
+  </style>
 </head>
 
 <body>
-    <header>
-        <nav>
-            <div class="logo">Sneakers Store</div>
-            <div class="hamburger" onclick="toggleMenu()">
-                <div></div>
-                <div></div>
-                <div></div>
-            </div>
-            <ul id="nav-links">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="products.html">Products</a></li>
-                <li><a href="cart.html">Cart</a></li>
-                <li><a href="payment.html">Payment</a></li>
-            </ul>
-        </nav>
-    </header>
+  <header>
+    <nav>
+      <div class="logo">Sneaker Store</div>
+      <div class="hamburger" onclick="toggleMenu()">
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+      <ul id="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="products.html">Products</a></li>
+        <li><a href="cart.html">Cart</a></li>
+        <li><a href="payment.html">Payment</a></li>
+      </ul>
+    </nav>
+  </header>
 
-    <section class="hero">
-        <div class="hero-text">
-            <h1>Step Up Your Game with Exclusive Sneakers</h1>
-            <p>Explore the trendiest sneakers from top brands.</p>
-            <a href="products.html" class="btn">Shop Now</a>
-        </div>
-        <div class="hero-image">
-            <img src="sneakers.jpg" alt="Featured Sneaker" />
-        </div>
-    </section>
+  <section class="hero">
+    <div class="hero-text">
+      <h1>Step Up Your Game with Exclusive Sneakers</h1>
+      <p>Explore the trendiest sneakers from top brands.</p>
+      <a href="products.html" class="btn">Shop Now</a>
+    </div>
+    <div class="hero-image">
+      <img src="sneakers.jpg" alt="Featured Sneaker" />
+    </div>
+  </section>
 
-    <section class="featured">
-        <h2>Featured Sneakers</h2>
-        <div class="product-grid">
-            <div class="product-card">
-                <img src="sneaker1.png" alt="Sneaker 1" />
-                <h3>Nike Air Max</h3>
-                <p>$120</p>
-            </div>
-            <div class="product-card">
-                <img src="sneaker2.png" alt="Sneaker 2" />
-                <h3>Adidas UltraBoost</h3>
-                <p>$150</p>
-            </div>
-            <div class="product-card">
-                <img src="sneaker3.png" alt="Sneaker 3" />
-                <h3>Puma RS-X</h3>
-                <p>$110</p>
-            </div>
-        </div>
-    </section>
+  <section class="featured">
+    <h2>Featured Sneakers</h2>
+    <div class="product-grid">
+      <div class="product-card">
+        <img src="sneaker1.png" alt="Sneaker 1" />
+        <h3>Nike Air Max</h3>
+        <p>$120</p>
+      </div>
+      <div class="product-card">
+        <img src="sneaker2.png" alt="Sneaker 2" />
+        <h3>Adidas UltraBoost</h3>
+        <p>$150</p>
+      </div>
+      <div class="product-card">
+        <img src="sneaker3.png" alt="Sneaker 3" />
+        <h3>Puma RS-X</h3>
+        <p>$110</p>
+      </div>
+    </div>
+  </section>
 
-    <footer>
-        <p>&copy; 2024 Sneaker Store. All Rights Reserved.</p>
-    </footer>
+  <footer>
+    <p>&copy; 2024 Sneaker Store. All Rights Reserved.</p>
+  </footer>
 
-    <script>
-        function toggleMenu() {
-            const navLinks = document.getElementById("nav-links");
-            navLinks.classList.toggle("show");
-        }
-    </script>
+  <script>
+    function toggleMenu() {
+      const navLinks = document.getElementById("nav-links");
+      navLinks.classList.toggle("show");
+    }
+  </script>
 </body>
 
 </html>
