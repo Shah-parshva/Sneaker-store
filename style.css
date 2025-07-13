@@ -892,6 +892,140 @@ header ul li a:hover {
     0% { transform: translateY(0); }
     100% { transform: translateY(-10px); }
 }
+/* Base Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #111;
+  padding: 15px 20px;
+  color: white;
+  position: relative;
+}
+
+.logo {
+  font-size: 1.6em;
+  font-weight: bold;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+.nav-links li a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.nav-links li a:hover {
+  color: #ffd700;
+}
+
+.menu-toggle {
+  display: none;
+  font-size: 26px;
+  cursor: pointer;
+}
+
+/* Cart Section */
+.cart {
+  padding: 20px;
+  max-width: 1000px;
+  margin: auto;
+}
+
+.cart h2 {
+  margin-bottom: 20px;
+  font-size: 1.8em;
+}
+
+.cart table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+.cart th, .cart td {
+  border: 1px solid #ccc;
+  padding: 12px;
+  text-align: center;
+}
+
+.cart-summary {
+  text-align: right;
+  font-size: 1.2em;
+}
+
+.btn {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #111;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  margin-top: 10px;
+  transition: background-color 0.3s;
+}
+
+.btn:hover {
+  background-color: #444;
+}
+
+/* Footer */
+footer {
+  background-color: #111;
+  color: white;
+  text-align: center;
+  padding: 15px 0;
+  margin-top: 40px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    display: none;
+    width: 100%;
+    background-color: #111;
+    position: absolute;
+    top: 60px;
+    left: 0;
+  }
+
+  .nav-links.show {
+    display: flex;
+  }
+
+  .nav-links li {
+    padding: 10px 20px;
+    border-top: 1px solid #333;
+  }
+
+  .cart table {
+    font-size: 14px;
+  }
+
+  .cart-summary {
+    text-align: center;
+  }
+}
+
 
 table {
     width: 100%;
@@ -1175,6 +1309,7 @@ header nav ul li a:hover {
 }
 
 /* Payment Section */
+
 body {
     font-family: 'Orbitron', sans-serif;
     margin: 0;
@@ -1185,11 +1320,13 @@ body {
     perspective: 1000px;
 }
 
+
 /* Starfield Animation for Background */
 @keyframes starfield {
     0% { transform: translateZ(0); }
     100% { transform: translateZ(100px); }
 }
+
 
 .starfield {
     position: fixed;

@@ -2,77 +2,303 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Product Page - Sneakers</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Product Page - Sneakers</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+    }
+
+    header {
+      background-color: #111;
+      color: white;
+    }
+
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      flex-wrap: wrap;
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 1rem;
+    }
+
+    .nav-links li a {
+      text-decoration: none;
+      color: white;
+    }
+
+    .search-and-profile {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .search-and-profile input {
+      padding: 0.4rem;
+    }
+
+    .profile-icon img {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+    }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      gap: 5px;
+    }
+
+    .hamburger div {
+      width: 25px;
+      height: 3px;
+      background-color: white;
+    }
+
+    .breadcrumb {
+      padding: 1rem 2rem;
+      font-size: 14px;
+      color: #666;
+    }
+
+    .product-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      padding: 2rem;
+    }
+
+    .product-gallery {
+      flex: 1;
+      min-width: 280px;
+    }
+
+    .main-image img {
+      width: 100%;
+      height: auto;
+    }
+
+    .thumbnail-gallery {
+      display: flex;
+      gap: 0.5rem;
+      margin-top: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .thumbnail-gallery img {
+      width: 60px;
+      height: 60px;
+      object-fit: cover;
+      border: 1px solid #ccc;
+      cursor: pointer;
+    }
+
+    .product-details {
+      flex: 1;
+      min-width: 280px;
+    }
+
+    .product-details h1 {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .description {
+      margin-bottom: 1rem;
+    }
+
+    .price {
+      margin-bottom: 1rem;
+    }
+
+    .current-price {
+      font-size: 1.3rem;
+      font-weight: bold;
+      color: green;
+    }
+
+    .discount {
+      margin-left: 10px;
+      color: red;
+    }
+
+    .inclusive-taxes {
+      font-size: 0.9rem;
+      color: #666;
+    }
+
+    .quantity-selector {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .quantity-selector input {
+      width: 50px;
+      text-align: center;
+      padding: 0.3rem;
+    }
+
+    .quantity-selector button {
+      padding: 0.3rem 0.7rem;
+      cursor: pointer;
+    }
+
+    .add-to-cart {
+      background-color: black;
+      color: white;
+      padding: 0.6rem 1.5rem;
+      border: none;
+      cursor: pointer;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1rem;
+      background-color: #f2f2f2;
+    }
+
+    /* Mobile Styles */
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        background-color: #111;
+        width: 100%;
+        padding: 1rem 2rem;
+      }
+
+      .nav-links.show {
+        display: flex;
+      }
+
+      .search-and-profile {
+        width: 100%;
+        justify-content: space-between;
+        margin-top: 1rem;
+      }
+
+      .hamburger {
+        display: flex;
+      }
+
+      .product-container {
+        flex-direction: column;
+        padding: 1rem;
+      }
+
+      .main-image img,
+      .thumbnail-gallery img {
+        width: 100%;
+        max-width: 100%;
+      }
+
+      .thumbnail-gallery {
+        justify-content: center;
+      }
+    }
+  </style>
 </head>
 
 <body>
-    <header>
-        <!-- Navigation bar similar to the one in the image -->
-        <nav class="navbar">
-            <div class="logo">Sneaker Store</div>
-            <ul class="nav-links">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="products.html">Products</a></li>
-                <li><a href="cart.html">Cart</a></li>
-                <li><a href="payment.html">Payment</a></li>
-            </ul>
-            <div class="search-and-profile">
-                <input type="text" placeholder="Search">
-                <div class="profile-icon">
-                    <img src="profile.png" alt="Profile">
-                </div>
-            </div>
-        </nav>
-    </header>
+  <header>
+    <nav class="navbar">
+      <div class="logo">Sneaker Store</div>
+      <div class="hamburger" onclick="toggleMenu()">
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="products.html">Products</a></li>
+        <li><a href="cart.html">Cart</a></li>
+        <li><a href="payment.html">Payment</a></li>
+      </ul>
+      <div class="search-and-profile">
+        <input type="text" placeholder="Search" />
+        <div class="profile-icon">
+          <img src="profile.png" alt="Profile" />
+        </div>
+      </div>
+    </nav>
+  </header>
 
-    <main>
-        <div class="breadcrumb">Home > Product</div>
-        
-        <section class="product-container">
-            <!-- Product Image Gallery -->
-            <div class="product-gallery">
-                <div class="main-image">
-                    <img src="sneakers.jpg" alt="Sneaker Main Image">
-                </div>
-                <div class="thumbnail-gallery">
-                    <img src="sneaker1.png" alt="Sneaker Image 1">
-                    <img src="sneaker2.png" alt="Sneaker Image 2">
-                    <img src="sneaker3.png" alt="Sneaker Image 3">
-                    <img src="sneaker4.png" alt="Sneaker Image 4">
-                </div>
-            </div>
+  <main>
+    <div class="breadcrumb">Home > Product</div>
 
-            <!-- Product Details -->
-            <div class="product-details">
-                <h1>Seven By M.S.Dhoni Men's Hogun Multi-Color Running Shoes</h1>
-                <p class="description">For exceptional fit, feel, and smooth transitions, get going with these dual mid-sole technology shoes. Constructed with molded EVA sock liner, gel at heel area, rubber outsole, fused upper, and breathable mesh.</p>
+    <section class="product-container">
+      <div class="product-gallery">
+        <div class="main-image">
+          <img src="sneakers.jpg" alt="Sneaker Main Image" />
+        </div>
+        <div class="thumbnail-gallery">
+          <img src="sneaker1.png" alt="Sneaker Image 1" />
+          <img src="sneaker2.png" alt="Sneaker Image 2" />
+          <img src="sneaker3.png" alt="Sneaker Image 3" />
+          <img src="sneaker4.png" alt="Sneaker Image 4" />
+        </div>
+      </div>
 
-                <div class="price">
-                    <span class="current-price">2999/-</span>
-                    <span class="discount">Save 40%</span>
-                    <p class="inclusive-taxes">Inclusive of all Taxes</p>
-                </div>
+      <div class="product-details">
+        <h1>Seven By M.S.Dhoni Men's Hogun Multi-Color Running Shoes</h1>
+        <p class="description">
+          For exceptional fit, feel, and smooth transitions, get going with
+          these dual mid-sole technology shoes. Constructed with molded EVA
+          sock liner, gel at heel area, rubber outsole, fused upper, and
+          breathable mesh.
+        </p>
 
-                <div class="quantity-selector">
-                    <button>-</button>
-                    <input type="number" value="1">
-                    <button>+</button>
-                </div>
+        <div class="price">
+          <span class="current-price">₹2999</span>
+          <span class="discount">Save 40%</span>
+          <p class="inclusive-taxes">Inclusive of all Taxes</p>
+        </div>
 
-                <a href="cart.html">
-                    <button class="add-to-cart">Add to Cart</button>
-                </a>
-                
-            </div>
-        </section>
-    </main>
+        <div class="quantity-selector">
+          <button>-</button>
+          <input type="number" value="1" />
+          <button>+</button>
+        </div>
 
-    <footer>
-        <p>&copy; 2024 sneaker store . All Rights Reserved.</p>
-    </footer>
+        <a href="cart.html">
+          <button class="add-to-cart">Add to Cart</button>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2024 Sneaker Store. All Rights Reserved.</p>
+  </footer>
+
+  <script>
+    function toggleMenu() {
+      const navLinks = document.getElementById("nav-links");
+      navLinks.classList.toggle("show");
+    }
+  </script>
 </body>
 
 </html>
