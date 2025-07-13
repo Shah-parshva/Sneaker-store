@@ -1,12 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Product Page - Sneakers</title>
-  <link rel="stylesheet" href="style.css" />
   <style>
+    /* Reset */
     * {
       margin: 0;
       padding: 0;
@@ -15,8 +14,11 @@
 
     body {
       font-family: Arial, sans-serif;
+      background-color: #fff;
+      color: #333;
     }
 
+    /* Navbar */
     header {
       background-color: #111;
       color: white;
@@ -26,8 +28,9 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 1rem 2rem;
       flex-wrap: wrap;
+      padding: 1rem 2rem;
+      position: relative;
     }
 
     .logo {
@@ -38,12 +41,18 @@
     .nav-links {
       list-style: none;
       display: flex;
-      gap: 1rem;
+      gap: 1.5rem;
     }
 
     .nav-links li a {
       text-decoration: none;
       color: white;
+      font-size: 1rem;
+      transition: color 0.3s;
+    }
+
+    .nav-links li a:hover {
+      color: #ffd700;
     }
 
     .search-and-profile {
@@ -54,6 +63,8 @@
 
     .search-and-profile input {
       padding: 0.4rem;
+      border-radius: 3px;
+      border: none;
     }
 
     .profile-icon img {
@@ -67,6 +78,7 @@
       flex-direction: column;
       cursor: pointer;
       gap: 5px;
+      margin-left: auto;
     }
 
     .hamburger div {
@@ -75,12 +87,14 @@
       background-color: white;
     }
 
+    /* Breadcrumb */
     .breadcrumb {
       padding: 1rem 2rem;
       font-size: 14px;
       color: #666;
     }
 
+    /* Product Section */
     .product-container {
       display: flex;
       flex-wrap: wrap;
@@ -96,6 +110,7 @@
     .main-image img {
       width: 100%;
       height: auto;
+      border-radius: 4px;
     }
 
     .thumbnail-gallery {
@@ -111,6 +126,7 @@
       object-fit: cover;
       border: 1px solid #ccc;
       cursor: pointer;
+      border-radius: 3px;
     }
 
     .product-details {
@@ -171,6 +187,7 @@
       padding: 0.6rem 1.5rem;
       border: none;
       cursor: pointer;
+      border-radius: 3px;
     }
 
     footer {
@@ -179,28 +196,41 @@
       background-color: #f2f2f2;
     }
 
-    /* Mobile Styles */
+    /* Responsive Styles */
     @media (max-width: 768px) {
+      .hamburger {
+        display: flex;
+      }
+
       .nav-links {
         display: none;
         flex-direction: column;
         background-color: #111;
-        width: 100%;
-        padding: 1rem 2rem;
+        position: absolute;
+        top: 60px;
+        right: 20px;
+        width: 180px;
+        padding: 1rem;
+        border-radius: 6px;
       }
 
       .nav-links.show {
         display: flex;
       }
 
+      .nav-links li {
+        padding: 0.5rem 0;
+        border-top: 1px solid #333;
+      }
+
+      .nav-links li:first-child {
+        border-top: none;
+      }
+
       .search-and-profile {
         width: 100%;
         justify-content: space-between;
         margin-top: 1rem;
-      }
-
-      .hamburger {
-        display: flex;
       }
 
       .product-container {
@@ -264,10 +294,8 @@
       <div class="product-details">
         <h1>Seven By M.S.Dhoni Men's Hogun Multi-Color Running Shoes</h1>
         <p class="description">
-          For exceptional fit, feel, and smooth transitions, get going with
-          these dual mid-sole technology shoes. Constructed with molded EVA
-          sock liner, gel at heel area, rubber outsole, fused upper, and
-          breathable mesh.
+          For exceptional fit, feel, and smooth transitions, get going with these dual mid-sole technology shoes.
+          Constructed with molded EVA sock liner, gel at heel area, rubber outsole, fused upper, and breathable mesh.
         </p>
 
         <div class="price">
@@ -300,5 +328,4 @@
     }
   </script>
 </body>
-
 </html>

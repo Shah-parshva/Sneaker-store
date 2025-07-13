@@ -4,7 +4,177 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Sneaker Store | Cart</title>
-  <link rel="stylesheet" href="style.css" />
+  <style>
+    /* Core Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f8f8f8;
+      color: #333;
+    }
+
+    /* Navbar Styles */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      background-color: #111;
+      color: white;
+      position: relative;
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+
+    .menu-toggle {
+      display: none;
+      font-size: 26px;
+      cursor: pointer;
+    }
+
+    .nav-links {
+      display: flex;
+      list-style: none;
+      gap: 1.5rem;
+    }
+
+    .nav-links li a {
+      color: white;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .nav-links li a:hover {
+      color: #ffd700;
+    }
+
+    /* Responsive Nav */
+    @media (max-width: 768px) {
+      .menu-toggle {
+        display: block;
+      }
+
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        right: 20px;
+        background-color: #111;
+        padding: 1rem;
+        border-radius: 6px;
+        z-index: 999;
+        width: 160px;
+      }
+
+      .nav-links.show {
+        display: flex;
+      }
+
+      .nav-links li {
+        padding: 0.5rem 0;
+        border-top: 1px solid #333;
+      }
+
+      .nav-links li:first-child {
+        border-top: none;
+      }
+    }
+
+    /* Cart Section */
+    .cart {
+      padding: 2rem;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    h2 {
+      margin-bottom: 1rem;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 1.5rem;
+    }
+
+    table, th, td {
+      border: 1px solid #ccc;
+    }
+
+    th, td {
+      padding: 0.75rem;
+      text-align: center;
+    }
+
+    .cart-summary {
+      text-align: right;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 0.75rem 1.5rem;
+      background-color: #111;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+      transition: background-color 0.3s;
+    }
+
+    .btn:hover {
+      background-color: #333;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1rem;
+      background-color: #eee;
+      margin-top: 2rem;
+    }
+
+    @media (max-width: 600px) {
+      table, thead, tbody, th, td, tr {
+        display: block;
+      }
+
+      thead {
+        display: none;
+      }
+
+      tr {
+        margin-bottom: 1rem;
+        border: 1px solid #ccc;
+        padding: 1rem;
+      }
+
+      td {
+        text-align: left;
+        padding-left: 50%;
+        position: relative;
+      }
+
+      td::before {
+        content: attr(data-label);
+        position: absolute;
+        left: 1rem;
+        width: 40%;
+        font-weight: bold;
+      }
+
+      .cart-summary {
+        text-align: center;
+      }
+    }
+  </style>
+
   <script defer>
     document.addEventListener("DOMContentLoaded", () => {
       const menuToggle = document.querySelector(".menu-toggle");
@@ -15,6 +185,7 @@
     });
   </script>
 </head>
+
 <body>
   <header>
     <nav class="navbar">
@@ -42,21 +213,22 @@
       </thead>
       <tbody>
         <tr>
-          <td>Nike Air Max</td>
-          <td>$120</td>
-          <td>1</td>
-          <td>$120</td>
+          <td data-label="Product">Nike Air Max</td>
+          <td data-label="Price">$120</td>
+          <td data-label="Quantity">1</td>
+          <td data-label="Total">$120</td>
         </tr>
         <tr>
-          <td>Adidas UltraBoost</td>
-          <td>$150</td>
-          <td>1</td>
-          <td>$150</td>
+          <td data-label="Product">Adidas UltraBoost</td>
+          <td data-label="Price">$150</td>
+          <td data-label="Quantity">1</td>
+          <td data-label="Total">$150</td>
         </tr>
       </tbody>
     </table>
+
     <div class="cart-summary">
-      <p>Subtotal: $270</p>
+      <p><strong>Subtotal: $270</strong></p>
       <a href="payment.html" class="btn">Proceed to Payment</a>
     </div>
   </section>
